@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary - Sleep Paralysis Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Summary</h1>
+            <button class="settings-icon">⚙️</button>
+        </header>
+        
+        <div class="episode-count">
+            <span class="count">2</span>
+            <p>Sleep paralysis episodes</p>
+        </div>
+        
+        <div class="episode-list">
+            <div class="episode-card" onclick="navigateToDetails(1)">
+                <h2>Episode 1 <span class="heart">❤️</span></h2>
+                <p>X mins <br> XX:XX to XX:XX</p>
+                <p>XYZ avg <br> XYZ high</p>
+            </div>
+            <div class="episode-card" onclick="navigateToDetails(2)">
+                <h2>Episode 2 <span class="heart">❤️</span></h2>
+                <p>X mins <br> XX:XX to XX:XX</p>
+                <p>XYZ avg <br> XYZ high</p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
