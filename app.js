@@ -1,3 +1,33 @@
+// Simulate navigation by showing or hiding sections
+function showSummaryPage() {
+    document.getElementById('summaryPage').style.display = 'block';
+    document.getElementById('detailsPage').style.display = 'none';
+}
+
+function showDetailsPage() {
+    document.getElementById('summaryPage').style.display = 'none';
+    document.getElementById('detailsPage').style.display = 'block';
+}
+
+// Event listeners for navigation
+document.addEventListener('DOMContentLoaded', () => {
+    // Show the summary page on load
+    showSummaryPage();
+
+    // Handle clicks on episode cards
+    const episodeCards = document.querySelectorAll('.episode-card');
+    episodeCards.forEach((card) => {
+        card.addEventListener('click', showDetailsPage);
+    });
+
+    // Back button to return to summary page
+    const backButton = document.querySelector('.back-button');
+    if (backButton) {
+        backButton.addEventListener('click', showSummaryPage);
+    }
+});
+
+// Register service worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
         .then((registration) => {
@@ -5,45 +35,4 @@ if ('serviceWorker' in navigator) {
         }).catch((error) => {
             console.log('Service Worker registration failed:', error);
         });
-}
-
-// Navigation and Chart rendering functions go here
-
-function navigateToDetails(episodeId) {
-    window.location.href = 'details.html?episode=' + episodeId;
-}
-
-function goBack() {
-    window.history.back();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const episodeId = urlParams.get('episode');
-    if (episodeId && document.getElementById('episodeChart')) {
-        renderChart();
-    }
-});
-
-function renderChart() {
-    const ctx = document.getElementById('episodeChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['M', 'W', 'F', 'Su'],
-            datasets: [{
-                label: 'Episodes',
-                data: [3, 6, 4, 3],
-                backgroundColor: 'orange'
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
 }
