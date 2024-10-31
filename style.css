@@ -1,35 +1,69 @@
-/* Basic Styling */
-body {
+body, html {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    padding: 1em;
 }
 
-header {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#content {
-    width: 90%;
-    max-width: 600px;
-}
-
-section {
-    margin-bottom: 20px;
-}
-
-#episodeDetails {
+.header {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    height: 300px;
+    max-width: 400px;
 }
 
-/* Chart Canvas Styling */
-#myChart {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
+.title {
+    font-size: 24px;
+}
+
+.settings-icon, .back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.episode-count {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.count {
+    font-size: 48px;
+}
+
+.episode-list, .episode-details {
+    width: 100%;
+    max-width: 400px;
+}
+
+.episode-card {
+    background-color: #e0e0e0;
+    padding: 1em;
+    margin: 0.5em 0;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heart {
+    color: red;
+}
+
+.chart {
+    width: 100%;
+    max-width: 400px;
+    margin: 1em 0;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
 }
