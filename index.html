@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary - Sleep Paralysis Tracker</title>
+    <title>Sleep Paralysis Tracker</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -12,17 +12,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="SleepTracker">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-title" content="SleepTracker">
-<link rel="apple-touch-icon" href="assets/images/icon-192x192.png">
     
     <!-- Manifest for PWA functionality -->
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="summaryPage">
+        <!-- Summary Page Content -->
         <header class="header">
             <h1 class="title">Summary</h1>
             <button class="settings-icon">⚙️</button>
@@ -34,20 +30,39 @@
         </div>
         
         <div class="episode-list">
-            <div class="episode-card" onclick="navigateToDetails(1)">
+            <div class="episode-card">
                 <h2>Episode 1 <span class="heart">❤️</span></h2>
                 <p>X mins <br> XX:XX to XX:XX</p>
                 <p>XYZ avg <br> XYZ high</p>
             </div>
-            <div class="episode-card" onclick="navigateToDetails(2)">
+            <div class="episode-card">
                 <h2>Episode 2 <span class="heart">❤️</span></h2>
                 <p>X mins <br> XX:XX to XX:XX</p>
                 <p>XYZ avg <br> XYZ high</p>
             </div>
         </div>
     </div>
+
+    <div class="container" id="detailsPage" style="display: none;">
+        <!-- Details Page Content -->
+        <header class="header">
+            <button class="back-button">Back</button>
+            <h1 class="title">Details</h1>
+        </header>
+        
+        <div class="chart">
+            <canvas id="episodeChart"></canvas>
+        </div>
+        
+        <div class="episode-details">
+            <h2>Episode 1 <span class="heart">❤️</span></h2>
+            <p>X mins <br> XX:XX to XX:XX</p>
+            <p>XYZ avg <br> XYZ high</p>
+        </div>
+    </div>
     
-    <!-- JavaScript -->
+    <!-- JavaScript for Navigation and Chart Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
