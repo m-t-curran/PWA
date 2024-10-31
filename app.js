@@ -1,31 +1,38 @@
-// Show detailed view with chart
-function viewDetails() {
-    document.getElementById('episodeDetails').style.display = 'block';
+function navigateToDetails(episodeId) {
+    window.location.href = 'details.html?episode=' + episodeId;
+}
 
-    // Check if the chart is already initialized
-    if (!window.myChart) {
-        const ctx = document.getElementById('myChart').getContext('2d');
-        window.myChart = new Chart(ctx, {
-            type: 'bar',  // Use 'bar' or 'line' depending on your preference
-            data: {
-                labels: ['Episode 1', 'Episode 2', 'Episode 3'], // Sample labels
-                datasets: [{
-                    label: 'Intensity of Episodes',
-                    data: [3, 1, 2],  // Sample data
-                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
-                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+function goBack() {
+    window.history.back();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const episodeId = urlParams.get('episode');
+    if (episodeId && document.getElementById('episodeChart')) {
+        renderChart();
+    }
+});
+
+function renderChart() {
+    const ctx = document.getElementById('episodeChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['M', 'W', 'F', 'Su'],
+            datasets: [{
+                label: 'Episodes',
+                data: [3, 6, 4, 3],
+                backgroundColor: 'orange'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
-    }
+        }
+    });
 }
