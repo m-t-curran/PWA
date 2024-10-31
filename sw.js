@@ -2,9 +2,7 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open('sleep-tracker-cache').then((cache) => {
             return cache.addAll([
-                '/',
                 '/index.html',
-                '/details.html',
                 '/style.css',
                 '/app.js',
                 '/manifest.json'
@@ -14,9 +12,19 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request).then((response) => {
-            return response || fetch(event.request);
-        })
-    );
+    if (event.request.mode === 'navigate') {
+        // Intercept all navigation requests and respond with `index.html`
+        event.respondWith(
+            caches.match('/index.html').then((response) => {
+                return response || fetch('/index.html');
+            })
+        );
+    } else {
+        // For other requests, try the cache first, then network if not found
+        event.respondWith(
+            caches.match(event.request).then((response) => {
+                return response || fetch(event.request);
+            })
+        );
+    }
 });
