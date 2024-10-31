@@ -6,7 +6,7 @@ self.addEventListener('install', (event) => {
                 '/style.css',
                 '/app.js',
                 '/manifest.json',
-                'https://cdn.jsdelivr.net/npm/chart.js' // Cache Chart.js library from CDN
+                'https://cdn.jsdelivr.net/npm/chart.js' // Cache the CDN version of Chart.js
             ]);
         })
     );
@@ -14,17 +14,23 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('fetch', (event) => {
     if (event.request.mode === 'navigate') {
-        // Always serve index.html for navigation requests
+        // Serve index.html for navigation requests
         event.respondWith(
             caches.match('/index.html').then((response) => {
                 return response || fetch('/index.html');
             })
         );
     } else {
-        // For other requests, try to serve from cache, then fallback to network
+        // Serve cached files, falling back to the network if not available
         event.respondWith(
             caches.match(event.request).then((response) => {
-                return response || fetch(event.request);
+                return response || fetch(event.request).then((networkResponse) => {
+                    // Cache the new file if fetched from network
+                    return caches.open('sleep-tracker-cache').then((cache) => {
+                        cache.put(event.request, networkResponse.clone());
+                        return networkResponse;
+                    });
+                });
             })
         );
     }
