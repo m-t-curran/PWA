@@ -2,7 +2,7 @@
     "name": "Sleep Paralysis Tracker",
     "short_name": "SleepTracker",
     "description": "Track sleep paralysis episodes",
-    "start_url": "/index.html",
+    "start_url": "https://m-t-curran.github.io/PWA/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
