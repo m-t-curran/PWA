@@ -1,69 +1,35 @@
-body, html {
-    margin: 0;
-    padding: 0;
+/* Basic Styling */
+body {
     font-family: Arial, sans-serif;
-}
-
-.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    margin: 0;
+    padding: 0;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 400px;
-}
-
-.title {
-    font-size: 24px;
-}
-
-.settings-icon, .back-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.episode-count {
+header {
     text-align: center;
-    margin: 1em 0;
+    margin-top: 20px;
 }
 
-.count {
-    font-size: 48px;
+#content {
+    width: 90%;
+    max-width: 600px;
 }
 
-.episode-list, .episode-details {
+section {
+    margin-bottom: 20px;
+}
+
+#episodeDetails {
     width: 100%;
-    max-width: 400px;
+    height: 300px;
 }
 
-.episode-card {
-    background-color: #e0e0e0;
-    padding: 1em;
-    margin: 0.5em 0;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-}
-
-.heart {
-    color: red;
-}
-
-.chart {
-    width: 100%;
-    max-width: 400px;
-    margin: 1em 0;
-}
-
-canvas {
-    width: 100%;
-    height: auto;
+/* Chart Canvas Styling */
+#myChart {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
 }
