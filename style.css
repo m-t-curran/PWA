@@ -42,7 +42,14 @@ body, html {
     width: 100%;
     max-width: 400px;
 }
-
+.episode-list, .episode-details {
+    width: 100%;
+    max-width: 400px;
+}
+.episode-list-full {
+    width: 100%;
+    max-width: 400px;
+}
 .episode-card {
     background-color: #e0e0e0;
     padding: 1em;

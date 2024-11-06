@@ -1,7 +1,12 @@
 function navigateToDetails(episodeId) {
     window.location.href = 'details.html?episode=' + episodeId;
 }
-
+function navigateToFullView() {
+    window.location.href = 'full.html'
+}
+function navigateToSettings() {
+    window.location.href = 'settings.html';
+}
 function goBack() {
     window.history.back();
 }

@@ -4,33 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary - Sleep Paralysis Tracker</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- iOS Full-Screen Mode Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SleepTracker">
+
+    <!-- Manifest for PWA functionality -->
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1 class="title">Summary</h1>
-            <button class="settings-icon">⚙️</button>
-        </header>
-        
-        <div class="episode-count">
-            <span class="count">2</span>
-            <p>Sleep paralysis episodes</p>
+<div class="container">
+    <header class="header" onclick="navigateToSettings()">
+        <h1 class="title">Summary</h1>
+        <button class="settings-icon">⚙️</button>
+    </header>
+
+    <div class="episode-count">
+        <span class="count">2</span>
+        <p>Recent sleep paralysis episodes</p>
+    </div>
+
+    <div class="episode-list">
+        <div class="episode-card" onclick="navigateToDetails(1)">
+            <h2>Episode 1 <span class="heart">❤️</span></h2>
+            <p>90 mins <br> 01:30 to 03:00</p>
+            <p>120 avg <br> 145 high</p>
         </div>
-        
-        <div class="episode-list">
-            <div class="episode-card" onclick="navigateToDetails(1)">
-                <h2>Episode 1 <span class="heart">❤️</span></h2>
-                <p>X mins <br> XX:XX to XX:XX</p>
-                <p>XYZ avg <br> XYZ high</p>
-            </div>
-            <div class="episode-card" onclick="navigateToDetails(2)">
-                <h2>Episode 2 <span class="heart">❤️</span></h2>
-                <p>X mins <br> XX:XX to XX:XX</p>
-                <p>XYZ avg <br> XYZ high</p>
+        <div class="episode-card" onclick="navigateToDetails(2)">
+            <h2>Episode 2 <span class="heart">❤️</span></h2>
+            <p>5 mins <br> 14:00 to 14:05</p>
+            <p>140 avg <br> 170 high</p>
+        </div>
+        <div class="episode-list-full">
+            <div class="episode-card" onclick="navigateToFullView()">
+                <h2>All Episodes </h2>
             </div>
         </div>
     </div>
-    <script src="app.js"></script>
+</div>
+
+<!-- JavaScript -->
+<script src="app.js"></script>
 </body>
 </html>
